@@ -1,0 +1,25 @@
+{
+  "name": "custom-rpc",
+  "version": "1.0.0",
+  "description": "Set a custom Discord Rich Presence",
+  "main": "rpc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon rpc.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tycrek/custom-rpc.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/tycrek/custom-rpc/issues"
+  },
+  "homepage": "https://github.com/tycrek/custom-rpc#readme",
+  "dependencies": {
+    "discord-rpc": "^3.1.4",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
