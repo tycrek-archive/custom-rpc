@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body{
 	background-color: #263238;
 	color: #ECEFF1;
-	padding: 0 8px 8px 8px;
+	margin: 0 8px 8px 8px;
+	font-family: 'Roboto', sans-serif;
 }
 
 table#rpc-table {
