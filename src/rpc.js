@@ -18,10 +18,3 @@ module.exports = {
 				.then(resolve)
 				.catch(reject))
 };
-
-function onReady(resolve) {
-	client.on('ready', () =>
-		setActivity(RPC_DATA.defaultData)
-			.then(() => console.log(':: [DISCORD] :: Activity set'))
-			.catch(console.warn));
-}
