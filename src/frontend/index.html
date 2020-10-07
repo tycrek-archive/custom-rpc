@@ -45,7 +45,8 @@ img.asset {
 	border: 2px solid #8BC34A;
 	border-radius: 8px;
 	margin: 2px !important;
-}</style><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script>const COLOURS = {
+}
+</style><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script>const COLOURS = {
 	error: '#F44336',
 	success: '#4CAF50'
 };
@@ -53,6 +54,7 @@ img.asset {
 function setRPC() {
 	let topline = document.getElementById('topline').value.trim();
 	let bottomline = document.getElementById('bottomline').value.trim();
+	let image = $('.selected').attr('id');
 	let status = document.getElementById('status');
 
 	status.style.opacity = 1.0;
@@ -68,7 +70,7 @@ function setRPC() {
 	if (topline === '') topline = '~~USE_EMPTY~~';
 	if (bottomline === '') bottomline = '~~USE_EMPTY~~';
 
-	fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}`)
+	fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}${image ? `/${btoa(image)}` : ''}`)
 		.then((res) => res.json())
 		.then((json) => {
 			status.style.color = COLOURS[json.success ? 'success' : 'error'];
@@ -87,8 +89,8 @@ function setRPC() {
 			}, 1000);
 	}
 }
+
 function setImage(assetName) {
-	console.log(assetName);
 	let willRemove = $(`#${assetName}`).hasClass('selected');
 	$('img.asset').removeClass('selected');
 	if (!willRemove) $(`#${assetName}`).addClass('selected');

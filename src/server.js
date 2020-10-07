@@ -7,15 +7,17 @@ const express = require('express');
 const server = express();
 
 // Set up routes
-server.get('/setrpc/:topline/:bottomline', (req, res) => {
+server.get('/setrpc/:topline/:bottomline/:image*?', (req, res) => {
 	let details = Buffer.from(req.params.topline, 'base64').toString();
 	let state = Buffer.from(req.params.bottomline, 'base64').toString();
+	let image = req.params.image ? Buffer.from(req.params.image, 'base64').toString() : undefined;
 
 	setActivity({
 		details: details === '~~USE_EMPTY~~' ? EMPTY_STATE : details,
 		state: state === '~~USE_EMPTY~~' ? EMPTY_STATE : state,
 		startTimestamp: Date.now(),
-		largeImageKey: 'tycrek'
+		largeImageKey: 'tycrek',
+		smallImageKey: image
 	})
 		.then(() => console.info(':: Discord RPC updated'))
 		.then(() => res.send({ success: true, message: 'Discord RPC updated' }))

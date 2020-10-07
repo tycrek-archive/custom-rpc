@@ -15,6 +15,7 @@ html(lang='en')
 			function setRPC() {
 				let topline = document.getElementById('topline').value.trim();
 				let bottomline = document.getElementById('bottomline').value.trim();
+				let image = $('.selected').attr('id');
 				let status = document.getElementById('status');
 
 				status.style.opacity = 1.0;
@@ -30,7 +31,7 @@ html(lang='en')
 				if (topline === '') topline = '~~USE_EMPTY~~';
 				if (bottomline === '') bottomline = '~~USE_EMPTY~~';
 
-				fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}`)
+				fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}${image ? `/${btoa(image)}` : ''}`)
 					.then((res) => res.json())
 					.then((json) => {
 						status.style.color = COLOURS[json.success ? 'success' : 'error'];
