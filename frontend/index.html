@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Custom RPC - Made by tycrek</title><style>body{
+	background-color: #263238;
+	color: #ECEFF1;
+	padding: 0 16px 8px 16px;
+}</style><script>function setRPC() {
+	let topline = document.getElementById('topline').value.trim();
+	let bottomline = document.getElementById('bottomline').value.trim();
+	if (bottomline === '') bottomline = '~~USE_EMPTY~~';
+	fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}`)
+}</script></head><body><h2>Custom RPC</h2><table><tr><td>Top line:</td><td><input type="text" id="topline"/></td></tr><tr><td>Bottom line:</td><td><input type="text" id="bottomline"/></td></tr><tr style="text-align: center;"><td>&nbsp;</td><td><button style="width: 100%" onclick="setRPC()">Set RPC</button></td></tr></table></body></html>

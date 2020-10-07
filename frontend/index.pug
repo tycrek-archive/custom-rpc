@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		title Custom RPC - Made by tycrek
+		style: include stylesheet.css
+		script.
+			function setRPC() {
+				let topline = document.getElementById('topline').value.trim();
+				let bottomline = document.getElementById('bottomline').value.trim();
+				if (bottomline === '') bottomline = '~~USE_EMPTY~~';
+				fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}`)
+			}
+	body
+		h2 Custom RPC
+		table
+			tr
+				td Top line:
+				td: input(type='text' id='topline')
+			tr
+				td Bottom line:
+				td: input(type='text' id='bottomline')
+			tr(style='text-align: center;')
+				td &nbsp;
+				td: button(style='width: 100%' onclick='setRPC()') Set RPC
