@@ -10,8 +10,8 @@ const RPC = require('./rpc');
 const htmlFile = path.join(__dirname, 'frontend/index.html');
 const pugFile = path.join(__dirname, 'frontend/index.pug');
 const windowData = {
-	width: 360,
-	height: 300,
+	width: 420,
+	height: 360,
 	alwaysOnTop: true,
 	fullscreenable: false,
 	opacity: 0.8,

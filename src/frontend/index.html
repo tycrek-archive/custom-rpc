@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Custom RPC - Made by tycrek</title><style>body{
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Custom RPC - Made by tycrek</title><style>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
 	background-color: #263238;
 	color: #ECEFF1;
-	padding: 0 8px 8px 8px;
+	margin: 0 8px 8px 8px;
+	font-family: 'Roboto', sans-serif;
 }
 
 table#rpc-table {
@@ -18,6 +21,24 @@ tr.button-status {
 
 button#set-rpc-button {
 	width: 100%;
+}
+
+p.image-header {
+	margin-bottom: 0.5em;
+}
+
+#asset-gallery {
+	width: 100%;
+	display: flex;
+	padding-bottom: 0.5em;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+img.asset {
+	display: inline-block;
+	padding: 0 4px 0 4px;
+	max-height: 64px;
 }</style><script>const COLOURS = {
 	error: '#F44336',
 	success: '#4CAF50'
@@ -59,4 +80,4 @@ function setRPC() {
 				}, 10);
 			}, 1000);
 	}
-}</script></head><body><center><h2>Custom RPC</h2><table id="rpc-table"><tr><td class="line">Top line:</td><td><input type="text" id="topline"/></td></tr><tr><td class="line">Bottom line:</td><td><input type="text" id="bottomline"/></td></tr><tr class="button-status"><td><button id="set-rpc-button" onclick="setRPC()">Set RPC</button></td><td><span id="status">&nbsp;</span></td></tr></table><img src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/></center></body></html>
+}</script></head><body><center><h2>Custom RPC</h2><table id="rpc-table"><tr><td class="line">Top line:</td><td><input type="text" id="topline"/></td></tr><tr><td class="line">Bottom line:</td><td><input type="text" id="bottomline"/></td></tr><tr class="button-status"><td><button id="set-rpc-button" onclick="setRPC()">Set RPC</button></td><td><span id="status">&nbsp;</span></td></tr></table><p class="image-header">Select small image:</p><div id="asset-gallery"><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/></div></center></body></html>

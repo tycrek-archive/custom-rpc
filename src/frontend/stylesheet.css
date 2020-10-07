@@ -22,3 +22,21 @@ tr.button-status {
 button#set-rpc-button {
 	width: 100%;
 }
+
+p.image-header {
+	margin-bottom: 0.5em;
+}
+
+#asset-gallery {
+	width: 100%;
+	display: flex;
+	padding-bottom: 0.5em;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+img.asset {
+	display: inline-block;
+	padding: 0 4px 0 4px;
+	max-height: 64px;
+}
