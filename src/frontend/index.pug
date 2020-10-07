@@ -60,3 +60,5 @@ html(lang='en')
 			tr.button-status
 				td: button#set-rpc-button(onclick='setRPC()') Set RPC
 				td: span#status &nbsp;
+		each asset in assets
+			img(src=asset)
