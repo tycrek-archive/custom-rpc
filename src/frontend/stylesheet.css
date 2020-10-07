@@ -37,6 +37,12 @@ p.image-header {
 
 img.asset {
 	display: inline-block;
-	padding: 0 4px 0 4px;
+	margin: 4px;
 	max-height: 64px;
+}
+
+.selected {
+	border: 2px solid #8BC34A;
+	border-radius: 8px;
+	margin: 2px !important;
 }
