@@ -16,9 +16,13 @@ html(lang='en')
 				let bottomline = document.getElementById('bottomline').value.trim();
 				let status = document.getElementById('status');
 
+				status.style.opacity = 1.0;
+
 				if ((topline.length < 2 && topline.length !== 0) || (bottomline.length < 2 && bottomline.length !== 0)) {
 					status.style.color = COLOURS.error;
 					status.innerHTML = 'Must be 2+ characters or empty';
+					status.innerHTML = 'Can\'t be a single character!';
+					doFadeOut();
 					return;
 				}
 
@@ -28,26 +32,31 @@ html(lang='en')
 				fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}`)
 					.then((res) => res.json())
 					.then((json) => {
-						if (json.success) {
-							status.style.color = COLOURS.success;
-							status.innerHTML = json.message;
-						} else {
-							status.style.color = COLOURS.error;
-							status.innerHTML = json.message;
-						}
+						status.style.color = COLOURS[json.success ? 'success' : 'error'];
+						status.innerHTML = json.message;
+
+						doFadeOut();
 					})
-					.then(() => window.reload)
 					.catch((err) => alert(err));
+
+				function doFadeOut() {
+					setTimeout(() => {
+							var fadeOut = setInterval(() => {
+								status.style.opacity -= 0.01;
+								if (status.style.opacity < 0) clearInterval(fadeOut);
+							}, 10);
+						}, 1000);
+				}
 			}
-	body
+	body: center
 		h2 Custom RPC
-		table
+		table#rpc-table
 			tr
-				td Top line:
+				td.line Top line:
 				td: input(type='text' id='topline')
 			tr
-				td Bottom line:
+				td.line Bottom line:
 				td: input(type='text' id='bottomline')
-			tr(style='text-align: center;')
-				td: button(style='width: 100%' onclick='setRPC()') Set RPC
+			tr.button-status
+				td: button#set-rpc-button(onclick='setRPC()') Set RPC
 				td: span#status &nbsp;

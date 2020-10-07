@@ -3,3 +3,19 @@ body{
 	color: #ECEFF1;
 	padding: 0 8px 8px 8px;
 }
+
+table#rpc-table {
+	table-layout: fixed;
+}
+
+td.line {
+	text-align: right;
+}
+
+tr.button-status {
+	text-align: center;
+}
+
+button#set-rpc-button {
+	width: 100%;
+}
