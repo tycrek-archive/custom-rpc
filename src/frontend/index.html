@@ -37,9 +37,15 @@ p.image-header {
 
 img.asset {
 	display: inline-block;
-	padding: 0 4px 0 4px;
+	margin: 4px;
 	max-height: 64px;
-}</style><script>const COLOURS = {
+}
+
+.selected {
+	border: 2px solid #8BC34A;
+	border-radius: 8px;
+	margin: 2px !important;
+}</style><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script>const COLOURS = {
 	error: '#F44336',
 	success: '#4CAF50'
 };
@@ -80,4 +86,10 @@ function setRPC() {
 				}, 10);
 			}, 1000);
 	}
-}</script></head><body><center><h2>Custom RPC</h2><table id="rpc-table"><tr><td class="line">Top line:</td><td><input type="text" id="topline"/></td></tr><tr><td class="line">Bottom line:</td><td><input type="text" id="bottomline"/></td></tr><tr class="button-status"><td><button id="set-rpc-button" onclick="setRPC()">Set RPC</button></td><td><span id="status">&nbsp;</span></td></tr></table><p class="image-header">Select small image:</p><div id="asset-gallery"><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png"/></div></center></body></html>
+}
+function setImage(assetName) {
+	console.log(assetName);
+	let willRemove = $(`#${assetName}`).hasClass('selected');
+	$('img.asset').removeClass('selected');
+	if (!willRemove) $(`#${assetName}`).addClass('selected');
+}</script></head><body><center><h2>Custom RPC</h2><table id="rpc-table"><tr><td class="line">Top line:</td><td><input type="text" id="topline"/></td></tr><tr><td class="line">Bottom line:</td><td><input type="text" id="bottomline"/></td></tr><tr class="button-status"><td><button id="set-rpc-button" onclick="setRPC()">Set RPC</button></td><td><span id="status">&nbsp;</span></td></tr></table><p class="image-header">Select small image:</p><div id="asset-gallery"><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763093707934531635.png" id="vscode" onclick="setImage('vscode')"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763133746886606868.png" id="tycrek" onclick="setImage('tycrek')"/><img class="asset" src="https://cdn.discordapp.com/app-assets/763074590149836821/763152759423238192.png" id="game" onclick="setImage('game')"/></div></center></body></html>

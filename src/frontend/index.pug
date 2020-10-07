@@ -49,6 +49,13 @@ html(lang='en')
 						}, 1000);
 				}
 			}
+			
+			function setImage(assetName) {
+				console.log(assetName);
+				let willRemove = $(`#${assetName}`).hasClass('selected');
+				$('img.asset').removeClass('selected');
+				if (!willRemove) $(`#${assetName}`).addClass('selected');
+			}
 	body: center
 		h2 Custom RPC
 		table#rpc-table
@@ -64,4 +71,4 @@ html(lang='en')
 		p.image-header Select small image:
 		#asset-gallery
 			each asset in assets
-				img.asset(src=asset)
+				img.asset(src=asset.url id=asset.name onclick=`setImage('${asset.name}')`)
