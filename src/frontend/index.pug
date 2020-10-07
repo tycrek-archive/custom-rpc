@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		title Custom RPC - Made by tycrek
+		style: include stylesheet.css
+		script.
+			const COLOURS = {
+				error: '#F44336',
+				success: '#4CAF50'
+			};
+
+			function setRPC() {
+				let topline = document.getElementById('topline').value.trim();
+				let bottomline = document.getElementById('bottomline').value.trim();
+				let status = document.getElementById('status');
+
+				if ((topline.length < 2 && topline.length !== 0) || (bottomline.length < 2 && bottomline.length !== 0)) {
+					status.style.color = COLOURS.error;
+					status.innerHTML = 'Must be 2+ characters or empty';
+					return;
+				}
+
+				if (topline === '') topline = '~~USE_EMPTY~~';
+				if (bottomline === '') bottomline = '~~USE_EMPTY~~';
+
+				fetch(`http://localhost:14374/setrpc/${btoa(topline)}/${btoa(bottomline)}`)
+					.then((res) => res.json())
+					.then((json) => {
+						if (json.success) {
+							status.style.color = COLOURS.success;
+							status.innerHTML = json.message;
+						} else {
+							status.style.color = COLOURS.error;
+							status.innerHTML = json.message;
+						}
+					})
+					.then(() => window.reload)
+					.catch((err) => alert(err));
+			}
+	body
+		h2 Custom RPC
+		table
+			tr
+				td Top line:
+				td: input(type='text' id='topline')
+			tr
+				td Bottom line:
+				td: input(type='text' id='bottomline')
+			tr(style='text-align: center;')
+				td: button(style='width: 100%' onclick='setRPC()') Set RPC
+				td: span#status &nbsp;

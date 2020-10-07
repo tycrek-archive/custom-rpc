@@ -2,10 +2,10 @@
   "name": "custom-rpc",
   "version": "1.0.0",
   "description": "Set a custom Discord Rich Presence",
-  "main": "rpc.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron rpc.js"
+    "start": "electron src/app.js"
   },
   "repository": {
     "type": "git",
