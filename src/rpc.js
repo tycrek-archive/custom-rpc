@@ -25,6 +25,5 @@ module.exports = {
 				.then(resolve)
 				.catch(reject)),
 	getAssetImage: (applicationId, assetId) =>
-		new Promise((resolve) =>
-			resolve(`https://cdn.discordapp.com/app-assets/${applicationId}/${assetId}.png`))
+		`https://cdn.discordapp.com/app-assets/${applicationId}/${assetId}.png`
 };
