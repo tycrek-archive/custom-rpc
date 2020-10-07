@@ -8,8 +8,8 @@ const path = require('path');
 const htmlFile = path.join(__dirname, 'frontend/index.html');
 const pugFile = Pug.renderFile(path.join(__dirname, 'frontend/index.pug'));
 const windowData = {
-	width: 340,
-	height: 220,
+	width: 360,
+	height: 240,
 	alwaysOnTop: true,
 	fullscreenable: false,
 	opacity: 0.8,
