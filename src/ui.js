@@ -15,7 +15,14 @@ const windowData = {
 	alwaysOnTop: true,
 	fullscreenable: false,
 	opacity: 0.8,
-	resizable: true
+	resizable: true,
+	icon: __dirname + '/frontend/logo.ico',
+	autoHideMenuBar: true,
+	darkTheme: true,
+	fullscreenable: false,
+	webPreferences: {
+		defaultFontFamily: 'sansSerif'
+	}
 };
 
 // Exports
