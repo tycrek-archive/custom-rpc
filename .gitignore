@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Electon
-custom-rpc-win32-x64/
+out/
